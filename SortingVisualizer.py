@@ -6,8 +6,8 @@ import sys
 algorithms = [SortingAlgorithms.SelectionSort(), SortingAlgorithms.InsertionSort(), SortingAlgorithms.MergeSort()]
 
 pygame.init()
-display = pygame.display.set_mode((1024,800))
-display.fill((0,0,0))
+display = pygame.display.set_mode((1024,512))
+display.fill((255,255,255))
 
 
 def close_window():
@@ -23,17 +23,17 @@ def keep_open(algorithm, display, time):
         pygame.display.update()
 
 def update_window(algorithm , index1 = None, index2 = None, display =display):
-    display.fill((0,0,0))
+    display.fill((255,255,255))
     pygame.display.set_caption(f'Sorting using {algorithm.name}  Time: {time.time()-algorithm.start_time}')
     dim = int(1024/len(algorithm.array_to_sort))
     for i in range(len(algorithm.array_to_sort)):
-        stick_color = (255,255,255)
+        stick_color = (0,0,255)
         if index1 == algorithm.array_to_sort[i]:
             stick_color = (0,255,0)
         elif index2 == algorithm.array_to_sort[i]:
             stick_color = (255,0,0)
         
-        pygame.draw.rect(display, stick_color, (i*dim, 800, dim, -algorithm.array_to_sort[i]),1)
+        pygame.draw.rect(display, stick_color, (i*dim, 512, dim, -algorithm.array_to_sort[i]),1)
     close_window()
     pygame.display.update()
 
