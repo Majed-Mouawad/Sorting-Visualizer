@@ -1,13 +1,12 @@
 import random
 import time
 from abc import ABCMeta, abstractmethod
-
 from pygame.surfarray import array_alpha
 
 class SortingAlgorithms():
     def __init__(self, name):
         self.name = name
-        self.array_to_sort = random.sample(range(800), 800)
+        self.array_to_sort = random.sample(range(512), 512)
         self.start_time = time.time()
 
     def udpate_display(self, index1 = None , index2 = None):
